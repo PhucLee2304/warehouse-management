@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Manager</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Product Manager</h1>
+
+    <div class="top-bar">
+      <input type="text" id="searchInput" placeholder="Search product..." />
+      <button onclick="openModal(true)">+ Add Product</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="productTable"></tbody>
+    </table>
+
+    <div class="pagination">
+      <button onclick="prevPage()">Previous</button>
+      <span id="pageInfo"></span>
+      <button onclick="nextPage()">Next</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Add / Edit Product</h2>
+      <form id="productForm">
+        <input type="hidden" id="productId" />
+        <input type="text" id="name" placeholder="Product Name" required />
+        <input type="number" id="price" placeholder="Price" required />
+        <input type="number" id="stock" placeholder="Stock" required />
+        <input type="text" id="description" placeholder="Description" required />
+        <input type="file" id="image" />
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
